@@ -1,0 +1,43 @@
+.ma.testcases--holder.w800.mt50.p50.fs17.ffa
+
+  .ptz--table.w100p.mb50
+    .ptz--tr
+      .ptz--td.w50p
+        .fs20.mb30 Give me 5XX status code
+
+        - STATUS_CODES_5XX.each do |code|
+          .mb20= link_to "Give me status code #{ code }", "/give-me-code-#{ code }"
+
+      .ptz--td
+        .fs20.mb30 Give me 5XX status code for XHR
+
+        - STATUS_CODES_5XX.each do |code|
+          .mb20= link_to "Give me status code #{ code }", "/give-me-code-#{ code }", remote: true, data: { type: :json }
+
+  .ptz--table.w100p.mb50
+    .ptz--tr
+      .ptz--td.w50p
+        .fs20.mb30 Give me 4XX status code
+
+        - STATUS_CODES_4XX.each do |code|
+          .mb20= link_to "Give me status code #{ code }", "/give-me-code-#{ code }"
+
+      .ptz--td
+        .fs20.mb30 Give me 4XX status code for XHR
+
+        - STATUS_CODES_4XX.each do |code|
+          .mb20= link_to "Give me status code #{ code }", "/give-me-code-#{ code }", remote: true, data: { type: :json }
+
+  .ptz--table.w100p
+    .ptz--tr
+      .ptz--td.w50p
+        .fs20.mb30 Give me a Bug
+
+        - 3.times do |i|
+          .mb20= link_to "Bug #{ i.next }", "/give-me-bug-#{ i.next }"
+
+      .ptz--td
+        .fs20.mb30 Give me a Bug for XHR
+
+        - 3.times do |i|
+          .mb20= link_to "Bug #{ i.next }", "/give-me-bug-#{ i.next }", remote: true, data: { type: :json }
